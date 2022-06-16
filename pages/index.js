@@ -1,14 +1,22 @@
 import Head from "next/head";
 import { css } from "@emotion/css";
 import { Button } from "../components/Button/Button.styled";
-import { theme } from "../theme/theme";
+import { useTheme } from "@emotion/react";
+import { useContext } from "react";
+import { AppThemeContext } from "../context/AppThemeContext/AppThemeContext";
 
 export default function Home() {
+  const theme = useTheme();
+
+  const { toogleThemeMode, isDarkMode } = useContext(AppThemeContext);
+
   return (
     <div
       className={css({
         padding: theme.spaces[10],
-        backgroundColor: theme.colors.gray[900],
+        backgroundColor: isDarkMode
+          ? theme.colors.gray[900]
+          : theme.colors.gray[50],
       })}
     >
       <Head>
@@ -31,7 +39,7 @@ export default function Home() {
             fontSize: theme.fontSizes.large,
             lineHeight: theme.spaces[10],
             marginBottom: theme.spaces[8],
-            color: theme.colors.white,
+            color: isDarkMode ? theme.colors.white : theme.colors.black,
           })}
         >
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi possimus
@@ -39,7 +47,7 @@ export default function Home() {
           Magnam eveniet dolores quas facilis minus placeat. Laborum natus eius
           quisquam?
         </p>
-        <Button>HELLO</Button>
+        <Button onClick={() => toogleThemeMode()}>HELLO WORLD</Button>
       </div>
     </div>
   );

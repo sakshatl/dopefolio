@@ -1,12 +1,15 @@
 import { ThemeProvider } from "@emotion/react";
+import AppThemeProvider from "../context/AppThemeContext/AppThemeContext";
 import "../styles/globals.css";
 import { theme } from "../theme/theme";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ThemeProvider theme={theme}>
-      <Component {...pageProps} />
-    </ThemeProvider>
+    <AppThemeProvider>
+      <ThemeProvider theme={theme}>
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </AppThemeProvider>
   );
 }
 
