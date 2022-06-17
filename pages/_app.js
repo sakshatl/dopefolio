@@ -1,10 +1,11 @@
 import { ThemeProvider } from "@emotion/react";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import AppThemeProvider, {
-  AppThemeContext,
+  AppThemeContext
 } from "../context/AppThemeContext/AppThemeContext";
 import "../styles/globals.css";
 import { theme } from "../theme/theme";
+import { appThemeDark, appThemeLight } from "../theme/appTheme";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -18,12 +19,24 @@ function MyApp({ Component, pageProps }) {
 
 function App({ children }) {
   const { isDarkMode } = useContext(AppThemeContext);
+
+  useEffect(() => {
+    const html = document.querySelector("html");
+    if (isDarkMode) {
+      html.style.backgroundColor = appThemeDark.backgroundColor;
+      html.style.color = appThemeDark.bodyTextColor;
+    } else {
+      html.style.backgroundColor = appThemeLight.backgroundColor;
+      html.style.color = appThemeLight.bodyTextColor;
+    }
+  }, [isDarkMode]);
+
   return (
     <ThemeProvider
       theme={
         isDarkMode
-          ? { ...theme, darkMode: true }
-          : { ...theme, darkMode: false }
+          ? { ...theme, appTheme: { ...appThemeDark } }
+          : { ...theme, appTheme: { ...appThemeLight } }
       }
     >
       {children}
