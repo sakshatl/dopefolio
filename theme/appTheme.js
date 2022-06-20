@@ -4,7 +4,8 @@ export const appThemeDark = {
   bodyTextColor: "rgba(255, 255, 255, 60%)",
   primaryColor: "#8739F9",
   primaryColorLighten: "rgba(135, 57, 249, 10%)",
-  heroTitleColor: "linear-gradient(90deg, #4AC7FA 0%, #E649F5 100%)"
+  heroTitleColor: "linear-gradient(90deg, #4AC7FA 0%, #E649F5 100%)",
+  projectCardBackground: "#242424"
 };
 
 export const appThemeLight = {
@@ -13,5 +14,6 @@ export const appThemeLight = {
   bodyTextColor: "rgba(0, 0, 0, 60%)",
   primaryColor: "#8739F9",
   primaryColorLighten: "rgba(135, 57, 249, 10%)",
-  heroTitleColor: "linear-gradient(90deg, #E100FF 0%, #7F00FF 100%)"
+  heroTitleColor: "linear-gradient(90deg, #E100FF 0%, #7F00FF 100%)",
+  projectCardBackground: "#FFFFFF"
 };

@@ -7,6 +7,10 @@ export const HeroTitle = styled.h2(({ theme }) => {
     backgroundClip: "text",
     textFillColor: "transparent",
     "-webkit-background-clip": "text",
-    "-webkit-text-fill-color": "transparent"
+    "-webkit-text-fill-color": "transparent",
+
+    "@media screen and (max-width : 1024px)": {
+      fontSize: theme.fontSizes.heading2
+    }
   };
 });

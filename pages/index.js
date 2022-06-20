@@ -2,6 +2,7 @@ import Head from "next/head";
 import { useContext, useState } from "react";
 import HeroSection from "../components/HeroSection/HeroSection";
 import PortfolioSection from "../components/PortfolioSection/PortfolioSection";
+import { Container } from "../components/styled/Container/Container.styled";
 
 import { AppThemeContext } from "../context/AppThemeContext/AppThemeContext";
 
@@ -19,15 +20,17 @@ export default function Home() {
       </Head>
       <button onClick={() => toogleThemeMode()}>Theme Switch</button>
       <div>
-        <section>
-          <HeroSection
-            selectedIndex={selectedIndex}
-            setSelectedIndex={setSelectedIndex}
-          />
-        </section>
-        <section>
-          <PortfolioSection selectedIndex={selectedIndex} />
-        </section>
+        <Container>
+          <section>
+            <HeroSection
+              selectedIndex={selectedIndex}
+              setSelectedIndex={setSelectedIndex}
+            />
+          </section>
+          <section>
+            <PortfolioSection selectedIndex={selectedIndex} />
+          </section>
+        </Container>
       </div>
     </div>
   );
